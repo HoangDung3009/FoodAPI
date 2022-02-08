@@ -14,24 +14,32 @@ namespace FoodAPI.Services
         {
             this._context = context;
         }
-        public void CreateCustomer(Cusomter cusomter)
+        public void CreateCustomer(Cusomter customer)
         {
-            throw new NotImplementedException();
+            if(customer == null)
+            {
+                throw new ArgumentNullException(nameof(customer));
+            }
+            _context.Cusomters.Add(customer);
         }
 
         public void DeleteCustomer(Cusomter customer)
         {
-            throw new NotImplementedException();
+            if (customer == null)
+            {
+                throw new ArgumentNullException(nameof(customer));
+            }
+            _context.Cusomters.Remove(customer);
         }
 
         public IEnumerable<Cusomter> GetAllCustomers()
         {
-            throw new NotImplementedException();
+            return _context.Cusomters.ToList();
         }
 
         public Cusomter GetCustomerById(int id)
         {
-            throw new NotImplementedException();
+            return _context.Cusomters.FirstOrDefault(x => x.CustomerId == id);
         }
 
         public bool SaveChanges()
@@ -41,7 +49,7 @@ namespace FoodAPI.Services
 
         public void UpdateCustomer(Cusomter customer)
         {
-            throw new NotImplementedException();
+            //Do nothing
         }
     }
 }

@@ -10,7 +10,7 @@ namespace FoodAPI.Interfaces
     {
         IEnumerable<Cusomter> GetAllCustomers();
         Cusomter GetCustomerById(int id);
-        void CreateCustomer(Cusomter cusomter);
+        void CreateCustomer(Cusomter customer);
         void UpdateCustomer(Cusomter customer);
         void DeleteCustomer(Cusomter customer);
         bool SaveChanges();
