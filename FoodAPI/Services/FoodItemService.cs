@@ -16,32 +16,40 @@ namespace FoodAPI.Services
         }
         public void CreateFoodItem(FoodItem foodItem)
         {
-            throw new NotImplementedException();
+            if(foodItem == null)
+            {
+                throw new ArgumentNullException(nameof(foodItem));
+            }
+            _context.FoodItems.Add(foodItem);
         }
 
         public void DeleteFoodItem(FoodItem foodItem)
         {
-            throw new NotImplementedException();
+            if (foodItem == null)
+            {
+                throw new ArgumentNullException(nameof(foodItem));
+            }
+            _context.FoodItems.Remove(foodItem);
         }
 
         public IEnumerable<FoodItem> GetAllFoodItems()
         {
-            throw new NotImplementedException();
+            return _context.FoodItems.ToList();
         }
 
         public FoodItem GetFoodItemsById(int id)
         {
-            throw new NotImplementedException();
+            return _context.FoodItems.FirstOrDefault(x => x.FoodItemId == id);
         }
 
         public bool SaveChanges()
         {
-            throw new NotImplementedException();
+            return (_context.SaveChanges() >= 0);
         }
 
         public void UpdateFoodItem(FoodItem foodItem)
         {
-            throw new NotImplementedException();
+            //
         }
     }
 }
